@@ -3,7 +3,7 @@
   "version": "2.2.0",
   "description": "An example project for Selenium in JavaScript with Mocha",
   "scripts": {
-    "test": "mocha --no-timeouts \"test/*.test.js\""
+    "test": "mocha --no-timeouts --parallel \"test/*.test.js\""
   },
   "author": {
     "name": "Applitools Team",
@@ -11,7 +11,7 @@
   },
   "license": "ISC",
   "dependencies": {
-    "@applitools/eyes-selenium": "^4.66.0",
+    "@applitools/eyes-selenium": "^4.77.0",
     "mocha": "^10.2.0",
     "selenium-webdriver": "^4.9.2"
   },

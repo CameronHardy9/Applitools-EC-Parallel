@@ -11,10 +11,9 @@ const { Eyes,
     BatchInfo,
     BrowserType,
     ScreenOrientation,
-    DeviceName,
-    FileLogHandler } = require('@applitools/eyes-selenium');
+    DeviceName } = require('@applitools/eyes-selenium');
 
-describe('Test 1', () => {
+describe('Test 2', () => {
     // This Mocha test case class contains everything needed to run a full visual test against the ACME bank site.
     // It runs the test once locally.
     // If you use the Ultrafast Grid, then it performs cross-browser testing against multiple unique browsers.
@@ -68,7 +67,7 @@ describe('Test 1', () => {
         // A batch is the collection of visual checkpoints for a test suite.
         // Batches are displayed in the Eyes Test Manager, so use meaningful names.
         const runnerName = (USE_ULTRAFAST_GRID) ? 'Ultrafast Grid' : 'Classic runner';
-        batch = new BatchInfo(`Test 1`);
+        batch = new BatchInfo(`Test 2`);
 
         // Create a configuration for Applitools Eyes.
         config = new Configuration();
@@ -142,12 +141,12 @@ describe('Test 1', () => {
             // The name of the application under test.
             // All tests for the same app should share the same app name.
             // Set this name wisely: Applitools features rely on a shared app name across tests.
-            'Test 1',
+            'Test 2',
             
             // The name of the test case for the given application.
             // Additional unique characteristics of the test may also be specified as part of the test name,
             // such as localization information ("Home Page - EN") or different user permissions ("Login by admin"). 
-            'Test 1',
+            'Test 2',
             
             // The viewport size for the local browser.
             // Eyes will resize the web browser to match the requested viewport size.
@@ -156,7 +155,7 @@ describe('Test 1', () => {
         );
     })
 
-    it('Test 1', async () => {
+    it('Test 2', async () => {
         // This test covers login for the Applitools demo site, which is a dummy banking app.
         // The interactions use typical Selenium calls,
         // but the verifications use one-line snapshot calls with Applitools Eyes.
@@ -164,19 +163,10 @@ describe('Test 1', () => {
         // Traditional assertions that scrape the page for text values are not needed here.
 
         // Load the login page.
-        await driver.get("https://demo.applitools.com");
+        await driver.get("https://www.google.com");
 
         // Verify the full login page loaded correctly.
         await eyes.check(Target.window().fully().withName("Login page"));
-
-        // Perform login.
-        await driver.findElement(By.css("#username")).sendKeys("andy");
-        await driver.findElement(By.css("#password")).sendKeys("i<3pandas");
-        await driver.findElement(By.id("log-in")).click();
-
-        // Verify the full main page loaded correctly.
-        // This snapshot uses LAYOUT match level to avoid differences in closing time text.
-        await eyes.check(Target.window().fully().withName("Main page").layout());
     });
     
     afterEach(async function() {
